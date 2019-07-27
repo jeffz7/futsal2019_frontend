@@ -42,6 +42,10 @@ const Schedule = () => {
             </article>
 
             {state.games.map(game => {
+                if (game.status === "played") {
+                    return null
+                }
+
                 let team1Id = game.teams[0] || "TeamA"
                 let team2Id = game.teams[1] || "TeamB"
 
@@ -57,10 +61,8 @@ const Schedule = () => {
                 return (
                     <article className="game-result" key={game.id}>
                         <div className="game-info">
-                            <p className="game-info-subtitle">{game.type}
-
-                            </p>
-                            <h3 className="game-info-title"> DAY {game.game_day}</h3>
+                            <p className="game-info-subtitle">DAY {game.game_day}</p>
+                            <h3 className="game-info-title"> {game.type} </h3>
                             <div className="game-info-main">
                                 <div className="game-info-team game-info-team-first">
                                     <figure><img src={team1Image} alt="" width="75" height="99" />

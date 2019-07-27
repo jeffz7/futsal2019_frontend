@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Schedule from '../components/Schedule'
 import PointTable from '../components/PointTable'
+import TopPlayers from '../components/TopPlayers'
+
 
 
 const HomePage = () => (
@@ -9,7 +11,13 @@ const HomePage = () => (
             <Schedule />
         </div>
         <div className="col-xl-4">
+            <article className="heading-component">
+                <div className="heading-component-inner">
+                    <h5 className="heading-component-title">Standings</h5>
+                </div>
+            </article>
             <PointTable />
+            <TopPlayers />
         </div>
     </>
 )
