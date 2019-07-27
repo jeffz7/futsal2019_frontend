@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import HomePage from './pages/HomePage'
+import ResultsPage from './pages/ResultsPage'
 import PointsPage from './pages/PointsPage'
 import SchedulePage from './pages/SchedulePage'
 
@@ -19,6 +20,7 @@ function App () {
             <Route path="/" component={HomePage} exact />
             <Route path="/tables" component={PointsPage} />
             <Route path="/schedules" component={SchedulePage} />
+            <Route path="/results" component={ResultsPage} />
           </div>
         </div>
       </section>
