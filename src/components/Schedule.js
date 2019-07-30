@@ -35,11 +35,11 @@ const Schedule = () => {
     return (
         <>
 
-            <article className="heading-component">
+            {/* <article className="heading-component">
                 <div className="heading-component-inner">
                     <h5 className="heading-component-title">Game schedule</h5>
                 </div>
-            </article>
+            </article> */}
 
             {state.games.map(game => {
                 if (game.status === "played") {
@@ -58,21 +58,34 @@ const Schedule = () => {
                     team2Image = state.teams[team2Id].image
                 }
 
+                if(game.teams.length === 0){
+                    team1Image = "https://futsal-2019.s3.us-east-2.amazonaws.com/default_team.png"
+                    team2Image = "https://futsal-2019.s3.us-east-2.amazonaws.com/default_team.png"
+                    if(game.type === "Eliminator"){
+                        team1Name = "League Table 2nd"
+                        team2Name = "League Table 3rd"
+                    }
+                    if(game.type === "Final"){
+                        team1Name = "League Table 1st"
+                        team2Name = "Winner of Eliminator"
+                    }
+                }
+
                 return (
                     <article className="game-result" key={game.id}>
                         <div className="game-info">
-                            <p className="game-info-subtitle">DAY {game.game_day}</p>
-                            <h3 className="game-info-title"> {game.type} </h3>
+                            <p className="game-info-subtitle">{game.type}</p>
+                            {/* <h3 className="game-info-title"> {game.type} </h3> */}
                             <div className="game-info-main">
                                 <div className="game-info-team game-info-team-first">
-                                    <figure><img src={team1Image} alt="" width="75" height="99" />
+                                    <figure><img src={team1Image} alt=""  />
                                     </figure>
                                     <div className="game-result-team-name">{team1Name}</div>
-                                    <div className="game-result-team-country">Suyati</div>
+                                    {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                                 <div className="game-info-middle game-info-middle-vertical">
-                                    <time className="time-big" ><span className="heading-3">{game.date}</span>
-                                        AUG 2019
+                                    <time className="time-big" ><span className="heading-3">{game.date_time[0] + ", " +game.date_time[1]}</span>
+                                    {game.date_time[2] + " " +game.date_time[3]}
                                                     </time>
                                     <div className="game-result-divider-wrap"><span className="game-info-team-divider">VS</span></div>
                                     <div className="group-sm">
@@ -82,10 +95,10 @@ const Schedule = () => {
                                     </div>
                                 </div>
                                 <div className="game-info-team game-info-team-second">
-                                    <figure><img src={team2Image} alt="" width="78" height="98" />
+                                    <figure><img src={team2Image} alt="" />
                                     </figure>
                                     <div className="game-result-team-name">{team2Name}</div>
-                                    <div className="game-result-team-country">Suyati</div>
+                                    {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                             </div>
                         </div>

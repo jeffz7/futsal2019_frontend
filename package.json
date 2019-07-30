@@ -2,10 +2,9 @@
   "name": "futsal-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
+  "proxy": "https://futsal-2019.herokuapp.com/",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",

@@ -17,13 +17,14 @@ const TopPlayers = () => {
     }, [])
 
     return (
-        <div className="table-custom-responsive">
+        <div className="table-custom-responsive" hidden={points.length===0}>
             <table className="table-custom table-standings table-classNameic">
                 <thead>
                     <tr>
                         <th colSpan="2">Top Players</th>
-                        <th>GOALS</th>
-                        <th>ASSISTS</th>
+                        <th>G</th>
+                        <th>A</th>
+                        <th>PTS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +43,7 @@ const TopPlayers = () => {
                                 </td>
                                 <td>{row.goal_scored}</td>
                                 <td>{row.goal_assisted}</td>
+                                <td>{row.pts}</td>
                             </tr>
                         )
                     })}

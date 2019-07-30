@@ -118,7 +118,7 @@ h1,
 	font-size: 32px;
 	line-height: 1.3
 }
-@media(min-width:768px){h1,.heading-1{font-size:40px;line-height:1.15}}@media(min-width:1200px){h1,.heading-1{font-size:60px;line-height:1.16667}}h2,.heading-2{font-size:28px;line-height:1.5}@media(min-width:1200px){h2,.heading-2{font-size:48px;line-height:1.25}}h3,.heading-3{font-size:24px;line-height:1.5}@media(min-width:1200px){h3,.heading-3{font-size:33px;line-height:1.33333}}h4,.heading-4,h5,.heading-5,h6,.heading-6{letter-spacing:.025em}h4,.heading-4{font-size:20px;line-height:1.35}@media(min-width:1200px){h4,.heading-4{font-size:24px;line-height:1.25}}h5,.heading-5{font-size:18px;line-height:1.35}@media(min-width:1200px){h5,.heading-5{font-size:18px;line-height:1.22222}}h6,.heading-6{font-size:14px;line-height:1.35}@media(min-width:1200px){h6,.heading-6{font-size:16px;line-height:1.25}}.heading-7{font-size:14px;line-height:1.35;letter-spacing:.05em}.heading-decoration-1{position:relative}.heading-decoration-1::before{content:'';position:relative;top:.55em;display:inline-block;vertical-align:top;width:.83333em;margin-right:.3em;border-bottom:3px solid
+@media(min-width:768px){h1,.heading-1{font-size:40px;line-height:1.15}}@media(min-width:1200px){h1,.heading-1{font-size:60px;line-height:1.16667}}h2,.heading-2{font-size:28px;line-height:1.5}@media(min-width:1200px){h2,.heading-2{font-size:48px;line-height:1.25}}h3,.heading-3{font-size:18px;line-height:1.5}@media(min-width:1200px){h3,.heading-3{font-size:20px;line-height:1.33333}}h4,.heading-4,h5,.heading-5,h6,.heading-6{letter-spacing:.025em}h4,.heading-4{font-size:20px;line-height:1.35}@media(min-width:1200px){h4,.heading-4{font-size:24px;line-height:1.25}}h5,.heading-5{font-size:18px;line-height:1.35}@media(min-width:1200px){h5,.heading-5{font-size:18px;line-height:1.22222}}h6,.heading-6{font-size:14px;line-height:1.35}@media(min-width:1200px){h6,.heading-6{font-size:16px;line-height:1.25}}.heading-7{font-size:14px;line-height:1.35;letter-spacing:.05em}.heading-decoration-1{position:relative}.heading-decoration-1::before{content:'';position:relative;top:.55em;display:inline-block;vertical-align:top;width:.83333em;margin-right:.3em;border-bottom:3px solid
 }
 .heading-decoration-2 {
 	position: relative;
@@ -8532,7 +8532,7 @@ justify-content:space-between
 	justify-content:space-between;
 	min-width:100%;
 	max-width:100%;
-	margin-top:24px
+	margin-top:14px
 }
 .game-info-middle {
 	flex-grow:1;
@@ -8640,7 +8640,7 @@ justify-content:space-between
 	max-height:60px
 }
 }
-@media(min-width:576px){.game-info{padding:46px 15px 60px
+@media(min-width:576px){.game-info{padding:25px 15px 30px
 }
 .game-info *+.group-sm {
 	margin-top:20px
@@ -8669,7 +8669,6 @@ justify-content:space-between
 .game-info-team {
 	width:199px;
 	padding:10px 5px;
-	border:1px solid #e1e1e1
 }
 .game-info-score {
 	min-width:70px;
@@ -21877,3 +21876,8 @@ background:#35ad79
 .theme-switcher-list-item[data-theme-name=rugby]::after {
 	background:#ea5455
 }
+
+
+/* custom*/
+.game-info-team figure{min-height: 80px;}
+.game-info-team img{max-height: 80px;max-width:80px }

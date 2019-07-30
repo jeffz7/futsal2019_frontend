@@ -22,7 +22,7 @@ const PointTable = () => {
                         <th>P</th>
                         <th>W</th>
                         <th>L</th>
-                        <th>GD</th>
+                        {/* <th>GD</th> */}
                         <th>PTS</th>
                     </tr>
                 </thead>
@@ -42,7 +42,7 @@ const PointTable = () => {
                                 <td>{row.played}</td>
                                 <td>{row.win}</td>
                                 <td>{row.loss}</td>
-                                <td>{row.gd}</td>
+                                {/* <td>{row.gd}</td> */}
                                 <td>{row.points}</td>
                             </tr>
                         )

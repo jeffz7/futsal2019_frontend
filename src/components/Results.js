@@ -35,13 +35,13 @@ const Results = () => {
 
     return (
         <>
-            <article className="heading-component">
+            {/* <article className="heading-component">
                 <div className="heading-component-inner">
                     <h5 className="heading-component-title">Latest games results
                           </h5>
 
                 </div>
-            </article>
+            </article> */}
             <div className="row row-30">
                 {state.games.map((row, i) => {
 
@@ -65,7 +65,7 @@ const Results = () => {
                                         <img src={team1Image} alt="" width="41" height="55" />
                                     </figure>
                                     <div className="game-result-team-name">{team1Name}</div>
-                                    <div className="game-result-team-country">Suyati</div>
+                                    {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                                 <div className="game-result-middle">
                                     <div className="game-result-score-wrap">
@@ -91,7 +91,7 @@ const Results = () => {
                                         <img src={team2Image} alt="" width="50" height="50" />
                                     </figure>
                                     <div className="game-result-team-name">{team2Name}</div>
-                                    <div className="game-result-team-country">Suyati</div>
+                                    {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                             </div>
                             <div className="game-result-footer">
