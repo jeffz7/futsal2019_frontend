@@ -2,7 +2,7 @@
   "name": "futsal-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://futsal-2019.herokuapp.com/",
+  "proxy": "https://suyatifutsal.herokuapp.com/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "react": "^16.8.6",

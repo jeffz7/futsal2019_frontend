@@ -42,9 +42,6 @@ const Schedule = () => {
             </article>
 
             {state.games.map(game => {
-                if (game.status === "played") {
-                    return null
-                }
 
                 let team1Id = game.teams[0] || "TeamA"
                 let team2Id = game.teams[1] || "TeamB"
@@ -78,29 +75,20 @@ const Schedule = () => {
                             {/* <h3 className="game-info-title"> {game.type} </h3> */}
                             <div className="game-info-main">
                                 <div className="game-info-team game-info-team-first">
-                                    <figure><img src={team1Image} alt="" />
+                                    <figure className="d-flex align-items-center"><img src={team1Image} alt="" />
                                     </figure>
                                     <div className="game-result-team-name">{team1Name}</div>
                                     {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
-                                <div className="game-info-middle game-info-middle-vertical">
-                                    <time className="time-big" ><span className="heading-3">{game.date_time[0] + ", " + game.date_time[1]}</span>
-                                        {game.date_time[2] + " " + game.date_time[3]}
-                                    </time>
-                                    <div className="game-result-divider-wrap"><span className="game-info-team-divider">VS</span></div>
-                                    <div className="group-sm">
-
-                                        <time> {game.time}</time>
-
-                                    </div>
-                                </div>
+                                {gameStats(game)}
                                 <div className="game-info-team game-info-team-second">
-                                    <figure><img src={team2Image} alt="" />
+                                    <figure className="d-flex align-items-center"><img src={team2Image} alt="" />
                                     </figure>
                                     <div className="game-result-team-name">{team2Name}</div>
                                     {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                             </div>
+                            {showGoals(game.stats)}
                         </div>
                     </article>
                 )
@@ -108,6 +96,55 @@ const Schedule = () => {
             )}
         </>
     )
+}
+
+function gameStats (game) {
+    if (game.status === "played") {
+        return (
+            <div className="game-info-middle game-info-middle-vertical">
+                <time className="time-big" ><span className="heading-3">{game.stats.result[game.teams[0]]} : {game.stats.result[game.teams[1]]}</span>
+                </time>
+                <div className="group-sm font-weight-lighter text-capitalize">
+                    <time>{game.date_time[0] + ", " + game.date_time[1] + " " + game.date_time[2] + " " + game.date_time[3]}</time>
+
+                </div>
+            </div>)
+    }
+    return (
+        <div className="game-info-middle game-info-middle-vertical">
+            <time className="time-big" ><span className="heading-3">{game.date_time[0] + ", " + game.date_time[1]}</span>
+                {game.date_time[2] + " " + game.date_time[3]}
+            </time>
+            <div className="game-result-divider-wrap"><span className="game-info-team-divider">VS</span></div>
+            <div className="group-sm">
+
+                <time> {game.time}</time>
+
+            </div>
+        </div>)
+}
+
+function showGoals (stats) {
+
+    let goals = stats && stats.goals
+    if (goals) {
+        goals = goals.sort((a, b) => parseInt(a.time) - parseInt(b.time))
+
+        let goalScorers = goals.map(g => {
+            let own_goal = ''
+            if (g.own_goal) {
+                own_goal = ', Own Goal'
+            }
+            let text = `${g.scored_by.name} (${g.time}'${own_goal})`
+            return text
+        })
+
+        return (<div className="font-weight-lighter text-capitalize" style={{ fontSize: "smaller  " }}>
+            {goalScorers.join(', ')}
+
+        </div>)
+    }
+    return null
 }
 
 export default Schedule
