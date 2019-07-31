@@ -21881,3 +21881,8 @@ background:#35ad79
 /* custom*/
 .game-info-team figure{min-height: 80px;}
 .game-info-team img{max-height: 80px;max-width:80px }
+
+.game-result-override-box{
+	border-bottom: 1px solid #e1e1e1 !important;
+	border: 0;
+}
