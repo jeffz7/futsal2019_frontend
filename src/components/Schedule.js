@@ -159,12 +159,17 @@ function showGoals (stats, teams) {
         })
 
 
-        return (<div className="font-weight-lighter text-capitalize" style={{ fontSize: "smaller  " }}>
-            <div style={{ float: "left", width: "50%", textAlign: "center" }}>
-                {goalScorers1.join(', ')}
-            </div>
-            <div style={{ textAlign: "center" }}>  {goalScorers2.join(', ')}</div>
-        </div>)
+        return (
+            <div className="row">
+                <div className="col">
+                    <small className="text-center">{goalScorers1.join(', ')}</small>
+
+                </div>
+                <div className="col">
+                    <small className="text-center"> {goalScorers2.join(', ')}</small>
+
+                </div>
+            </div>)
     }
     return null
 }
