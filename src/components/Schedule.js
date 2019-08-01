@@ -88,7 +88,7 @@ const Schedule = () => {
                                     {/* <div className="game-result-team-country">Suyati</div> */}
                                 </div>
                             </div>
-                            {showGoals(game.stats)}
+                            {showGoals(game.stats, game.teams)}
                         </div>
                     </article>
                 )
@@ -124,13 +124,32 @@ function gameStats (game) {
         </div>)
 }
 
-function showGoals (stats) {
+function showGoals (stats, teams) {
 
     let goals = stats && stats.goals
     if (goals) {
         goals = goals.sort((a, b) => parseInt(a.time) - parseInt(b.time))
 
-        let goalScorers = goals.map(g => {
+        let team1Goals = [], team2Goals = []
+
+        goals.map(g => {
+            if (g.for_team === teams[0]) {
+                team1Goals.push(g)
+            } else if (g.for_team === teams[1]) {
+                team2Goals.push(g)
+            }
+        })
+
+        let goalScorers1 = team1Goals.map(g => {
+
+            let own_goal = ''
+            if (g.own_goal) {
+                own_goal = ', Own Goal'
+            }
+            let text = `${g.scored_by.name} (${g.time}'${own_goal})`
+            return text
+        })
+        let goalScorers2 = team2Goals.map(g => {
             let own_goal = ''
             if (g.own_goal) {
                 own_goal = ', Own Goal'
@@ -139,9 +158,12 @@ function showGoals (stats) {
             return text
         })
 
-        return (<div className="font-weight-lighter text-capitalize" style={{ fontSize: "smaller  " }}>
-            {goalScorers.join(', ')}
 
+        return (<div className="font-weight-lighter text-capitalize" style={{ fontSize: "smaller  " }}>
+            <div style={{ float: "left", width: "50%", textAlign: "center" }}>
+                {goalScorers1.join(', ')}
+            </div>
+            <div style={{ textAlign: "center" }}>  {goalScorers2.join(', ')}</div>
         </div>)
     }
     return null

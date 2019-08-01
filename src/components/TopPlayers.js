@@ -22,9 +22,8 @@ const TopPlayers = () => {
                 <thead>
                     <tr>
                         <th colSpan="2">Top Players</th>
-                        <th>G</th>
-                        <th>A</th>
-                        <th>PTS</th>
+                        <th>Goal</th>
+                        <th>Assist</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +42,6 @@ const TopPlayers = () => {
                                 </td>
                                 <td>{row.goal_scored}</td>
                                 <td>{row.goal_assisted}</td>
-                                <td>{row.pts}</td>
                             </tr>
                         )
                     })}
